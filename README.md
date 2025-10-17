@@ -121,3 +121,31 @@ Designing a database for an Airbnb-like app requires identifying key entities, t
 - **Indexes**: Create indexes on frequently queried fields like `property_id`, `user_id`, or `check_in_date` to optimize performance.
 - **Data Types**: Choose appropriate data types (e.g., VARCHAR for `email`, DECIMAL for `price_per_night`, DATE for `check_in_date`) based on the database system (e.g., MySQL, PostgreSQL).
 - **Security**: Store sensitive data like `password_hash` securely and consider encrypting fields like `phone_number`
+
+
+            Feature Breakdown
+Based on the Airbnb app database design provided, the main features of the project can be inferred from the entities and their relationships. Below is a list of the main features—User Management, Property Management, Booking System, Review System, and Payment System—along with a 2-3 sentence description of each, explaining their contribution to the project.
+
+---
+
+### Main Features
+
+1. **User Management**
+   - **Description**: This feature handles the registration, authentication, and profile management of users, including both hosts and guests. It supports functionalities like account creation, login, and updating personal details such as email, name, and phone number.
+   - **Contribution**: User Management ensures secure access to the platform and distinguishes between hosts and guests, enabling personalized experiences and trust through verified profiles.
+
+2. **Property Management**
+   - **Description**: Allows hosts to create, update, and manage property listings, including details like title, location, price, and amenities. Guests can search and view these listings to find suitable accommodations.
+   - **Contribution**: Property Management is the core of the platform, enabling hosts to offer their spaces and guests to discover and evaluate properties, driving the marketplace functionality.
+
+3. **Booking System**
+   - **Description**: Facilitates the reservation process by allowing guests to book properties for specific dates and hosts to manage availability. It tracks check-in/check-out dates and booking status to ensure smooth coordination.
+   - **Contribution**: The Booking System enables seamless transactions between guests and hosts, ensuring properties are reserved efficiently and conflicts (e.g., double bookings) are avoided.
+
+4. **Review System**
+   - **Description**: Enables guests to leave ratings and comments about their stay, and hosts to respond to feedback. Reviews are linked to specific properties and users to provide transparency.
+   - **Contribution**: The Review System builds trust and accountability in the platform by allowing users to share experiences, helping future guests make informed decisions and encouraging hosts to maintain quality.
+
+5. **Payment System**
+   - **Description**: Manages financial transactions for bookings, including processing payments, tracking amounts, and handling statuses like completed or refunded. It links payments directly to bookings for accurate record-keeping.
+   - **Contribution**: The Payment System ensures secure and reliable transactions, providing confidence to users and enabling the platform to handle revenue flow effectively.
