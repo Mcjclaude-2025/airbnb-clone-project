@@ -1,6 +1,8 @@
 # airbnb-clone-project
 The initial project in my learning journey in the AlX Prodev course
-          Team roles
+
+
+          Team Roles
 Business Analyst (BA): Translates business needs into technical requirements; bridges client vision and development execution.
 
 Product Owner (PO): Owns the product vision; prioritizes features and ensures the final product meets customer needs.
