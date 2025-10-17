@@ -21,6 +21,66 @@ Test Automation Engineer: Develops automated test scripts; speeds up testing and
 
 DevOps Engineer: Bridges development and operations; builds CI/CD pipelines and ensures efficient, stable deployments.
 
+
+                Technology Stack
+
+The project overview and subsequent discussions about the Airbnb-like app database design, features, security, APIs, and CI/CD pipelines mention or imply several technologies relevant to the project. Below is a list of these technologies, with an explanation of their purpose in the context of the Airbnb-like app. Since some technologies were explicitly mentioned (e.g., GraphQL, Docker) and others were implied based on standard practices for such a project, I’ll include both for completeness.
+
+---
+
+### Technologies and Their Purpose
+
+1. **PostgreSQL**
+   - **Purpose**: A relational database management system used to store and manage the app’s data, including entities like Users, Properties, Bookings, Reviews, and Payments.
+   - **Role in Project**: PostgreSQL handles structured data storage, ensuring efficient querying (e.g., searching properties by location) and relational integrity (e.g., foreign keys linking Bookings to Properties). Its robustness supports scalability and security features like encryption for sensitive data.
+
+2. **GraphQL**
+   - **Purpose**: An API query language that allows clients to request specific data, reducing over- or under-fetching compared to REST.
+   - **Role in Project**: GraphQL enables flexible API queries, such as fetching a property’s details and its reviews in a single request (e.g., `{ property(id: 123) { title, price, reviews { rating } } }`), improving performance for features like property browsing and review display.
+
+3. **REST (Representational State Transfer)**
+   - **Purpose**: An architectural style for designing APIs using HTTP methods (GET, POST, PUT, DELETE) to manage resources.
+   - **Role in Project**: REST APIs provide endpoints like `/api/properties` or `/api/bookings` to support core functionalities such as creating listings, booking properties, or processing payments, offering simplicity and scalability.
+
+4. **Node.js**
+   - **Purpose**: A JavaScript runtime for building scalable server-side applications, often used with frameworks like Express for APIs.
+   - **Role in Project**: Node.js (implied for API development) powers the backend, handling requests for user authentication, property management, and booking operations, ensuring fast and non-blocking API responses.
+
+5. **Docker**
+   - **Purpose**: A containerization platform that packages applications and their dependencies into containers for consistent environments.
+   - **Role in Project**: Docker ensures the app’s components (e.g., Node.js backend, PostgreSQL database) run consistently across development, testing, and production, simplifying CI/CD pipelines and deployment.
+
+6. **GitHub Actions**
+   - **Purpose**: A CI/CD platform integrated with GitHub for automating workflows like building, testing, and deploying code.
+   - **Role in Project**: GitHub Actions automates testing of features (e.g., unit tests for booking logic) and deploys updates to the app’s frontend or backend, ensuring rapid and reliable releases.
+
+7. **Stripe**
+   - **Purpose**: A payment processing platform for handling secure financial transactions.
+   - **Role in Project**: Stripe processes payments for bookings, ensuring PCI-compliant handling of payment data and secure transactions for the Payment System feature.
+
+8. **JSON Web Tokens (JWT)**
+   - **Purpose**: A standard for secure authentication, providing tokens to verify user identity in API requests.
+   - **Role in Project**: JWTs secure API endpoints (e.g., `/api/bookings`) by verifying user identity, ensuring only authenticated users can perform actions like booking or reviewing.
+
+9. **TLS/SSL (HTTPS)**
+   - **Purpose**: A protocol for encrypting data transmitted between clients and servers.
+   - **Role in Project**: TLS/SSL secures API communications (e.g., transmitting user data or payment details), protecting sensitive information like emails or booking dates from interception.
+
+10. **Redis**
+    - **Purpose**: An in-memory data store used for caching or rate limiting.
+    - **Role in Project**: Redis supports rate limiting for API endpoints (e.g., limiting login attempts to prevent brute-force attacks) and caches frequently accessed data like property listings to improve performance.
+
+11. **Nginx**
+    - **Purpose**: A web server and reverse proxy for handling HTTP requests and load balancing.
+    - **Role in Project**: Nginx serves as a reverse proxy for API requests, manages load balancing for high traffic (e.g., property searches), and enforces rate limiting for security.
+
+---
+
+### Notes
+- **Implied Technologies**: Some technologies (e.g., Node.js, Nginx, Redis) were not explicitly mentioned in the project overview but are inferred as standard choices based on the API design, security measures (e.g., rate limiting), and CI/CD requirements. For example, Node.js is a common choice for REST/GraphQL APIs, and Redis/Nginx are typical for rate limiting and proxying.
+- **Missing Explicit Technologies**: The overview didn’t explicitly mention a web framework like Django, but Node.js is assumed for API development due to its compatibility with GraphQL and REST. If a framework like Django is preferred, it could replace Node.js for building RESTful APIs.
+- **Extensibility**: Additional technologies like React (for the frontend) or AWS (for hosting) could be implied but weren’t specified. I focused on those directly tied to the database, APIs, security, and CI/CD discussions.
+       
                 Database Design
 Designing a database for an Airbnb-like app requires identifying key entities, their attributes, and relationships to support core functionalities like user management, property listings, bookings, reviews, and payments. Below is a detailed database design with key entities, their important fields, and how they are related.
 
