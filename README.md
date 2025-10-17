@@ -149,3 +149,56 @@ Based on the Airbnb app database design provided, the main features of the proje
 5. **Payment System**
    - **Description**: Manages financial transactions for bookings, including processing payments, tracking amounts, and handling statuses like completed or refunded. It links payments directly to bookings for accurate record-keeping.
    - **Contribution**: The Payment System ensures secure and reliable transactions, providing confidence to users and enabling the platform to handle revenue flow effectively.
+
+
+API Security
+
+For an Airbnb-like app, implementing robust security measures is critical to protect user data, ensure trust, and maintain platform integrity. Below are the key security measures—Authentication, Authorization, Rate Limiting, Data Encryption, and Secure Payment Processing—along with brief explanations of why security is crucial for each key area of the project (User Management, Property Management, Booking System, Review System, and Payment System).
+
+---
+
+### Key Security Measures
+
+1. **Authentication**
+   - **Description**: Implements secure user login using methods like email/password with password hashing (e.g., bcrypt) and multi-factor authentication (MFA) for added security. JSON Web Tokens (JWT) or OAuth can be used for session management.
+   - **Implementation**: Users must verify their identity during login, and MFA (e.g., SMS or authenticator apps) is enforced for sensitive actions like account changes.
+
+2. **Authorization**
+   - **Description**: Uses role-based access control (RBAC) to restrict actions based on user roles (e.g., guest, host, admin). For example, only hosts can edit their property listings, and only admins can access user data reports.
+   - **Implementation**: Permissions are checked server-side for every request, ensuring users only access authorized resources.
+
+3. **Rate Limiting**
+   - **Description**: Limits the number of API requests a user can make within a time frame to prevent abuse, such as brute-force login attempts or denial-of-service (DoS) attacks. Tools like Redis can track request counts.
+   - **Implementation**: Apply rate limits to endpoints like login (e.g., 5 attempts per minute) and booking requests (e.g., 100 requests per hour).
+
+4. **Data Encryption**
+   - **Description**: Encrypts sensitive data both at rest (e.g., using AES-256 in the database) and in transit (e.g., using TLS/SSL for HTTPS). Fields like passwords, phone numbers, and payment details are encrypted.
+   - **Implementation**: Use secure protocols for API communication and encrypt database fields containing personal identifiable information (PII).
+
+5. **Secure Payment Processing**
+   - **Description**: Integrates with PCI-compliant payment gateways (e.g., Stripe, PayPal) to handle transactions securely. Tokenization is used to avoid storing sensitive payment details like credit card numbers.
+   - **Implementation**: Payments are processed via secure APIs, and transaction data is logged with minimal sensitive information retained.
+
+---
+
+### Why Security Is Crucial for Each Key Area
+
+1. **User Management**
+   - **Why Security Matters**: User Management handles sensitive data like email, passwords, and phone numbers, which, if compromised, can lead to identity theft or unauthorized account access. Strong authentication (e.g., MFA) and data encryption protect user privacy and maintain trust in the platform.
+   - **Impact of Breach**: A breach could erode user confidence, leading to loss of users and legal liabilities under regulations like GDPR or CCPA.
+
+2. **Property Management**
+   - **Why Security Matters**: Property listings contain sensitive details like host addresses and availability, which could be exploited if accessed by unauthorized users. Authorization ensures only verified hosts can manage listings, and encryption protects location data.
+   - **Impact of Breach**: Unauthorized changes to listings or exposure of host addresses could lead to fraud, vandalism, or safety risks for hosts.
+
+3. **Booking System**
+   - **Why Security Matters**: The Booking System processes reservations, which involve user identities and property availability. Rate limiting and authorization prevent malicious actions like overbooking or unauthorized cancellations, ensuring reliable operations.
+   - **Impact of Breach**: Booking manipulation could disrupt user experiences, cause financial losses, or enable fraudulent reservations.
+
+4. **Review System**
+   - **Why Security Matters**: Reviews influence user decisions and platform credibility, so authentication and authorization ensure only verified guests can post reviews, preventing fake or malicious feedback. Rate limiting mitigates spam reviews.
+   - **Impact of Breach**: Fake reviews could mislead users, damage host reputations, and undermine the platform’s trustworthiness.
+
+5. **Payment System**
+   - **Why Security Matters**: Payments involve financial data, making them a prime target for cyberattacks. Secure payment processing and encryption protect against fraud and ensure compliance with standards like PCI-DSS.
+   - **Impact of Breach**: Payment breaches could result in financial losses, legal penalties, and significant reputational damage, deterring users from booking.
